@@ -2,10 +2,10 @@
   
     
         "post0": {
-            "title": "Title",
+            "title": "pandas tricks",
             "content": "import pandas as pd .",
-            "url": "https://tanmay-kulkarni.github.io/blog/2021/02/21/pandas-tricks.html",
-            "relUrl": "/2021/02/21/pandas-tricks.html",
+            "url": "https://tanmay-kulkarni.github.io/blog/pandas/python/2021/02/21/pandas-tricks.html",
+            "relUrl": "/pandas/python/2021/02/21/pandas-tricks.html",
             "date": " • Feb 21, 2021"
         }
         
