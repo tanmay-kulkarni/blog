@@ -77,7 +77,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      3 min read
     
 </span></p>
 
@@ -116,6 +116,14 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#Improving-performance">Improving performance </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#Provisioned-Throughput">Provisioned Throughput </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Example-1:">Example 1: </a></li>
+<li class="toc-entry toc-h3"><a href="#Example-2:">Example 2: </a></li>
+<li class="toc-entry toc-h3"><a href="#Example-3:">Example 3: </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#DynamoDB-On-Demand-Capacity">DynamoDB On Demand Capacity </a></li>
 </ul>
 </li>
 </ul><!--
@@ -177,26 +185,125 @@ window.onload = wrap_img;
 <h2 id="Scan-and-Query-API-calls">
 <a class="anchor" href="#Scan-and-Query-API-calls" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scan and Query API calls<a class="anchor-link" href="#Scan-and-Query-API-calls"> </a>
 </h2>
-<pre><code>QUERY:
-</code></pre>
+<p><strong>QUERY</strong></p>
 <p>A query operation finds items in your table based on the primary key attribute, and a distinct value to search for. A query can be refined by using an optional sort key name and value. By default a query returns all the attributes. You can limit the attributes to the specific attributes you want by using the <code>ProjectionExpression</code> parameter.</p>
 <p>Results are always sorted by the sort key.</p>
 <p>You can reverse the order of the result by setting the <code>ScanIndexForward</code> attribute to False.</p>
 <p><strong>REMEMBER: <code>ScanIndexForward</code> is applicable only to queries and NOT to scans, despite the name</strong></p>
 <p>By default all queries are eventually consistent.</p>
-
-<pre><code>SCAN:
-
-</code></pre>
+<p><strong>SCAN</strong></p>
 <p>A scan operation examines every attribute in the table. Again, you can use the <code>ProjectionExpression</code> parameter to limit the attributes returned.</p>
 <p>A query is more efficient than Scan.</p>
 <h3 id="Improving-performance">
 <a class="anchor" href="#Improving-performance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Improving performance<a class="anchor-link" href="#Improving-performance"> </a>
 </h3>
-<pre><code>* Set smaller page size
-* Avoid scans if possible
-* By using parallel scan. A scan by default operates in a sequential manner. But you can configure your DynamoDB to use parallel scans by logically dividing a table or index into segments and scanning each segment in parallel.
-* Isolate scan operations to specific tables and segregate them from mission critical data</code></pre>
+<pre><code>- Set smaller page size
+- Avoid scans if possible
+- By using parallel scan. A scan by default operates in a sequential manner. But you can configure your DynamoDB to use parallel scans by logically dividing a table or index into segments and scanning each segment in parallel.
+- Isolate scan operations to specific tables and segregate them from mission critical data</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Provisioned-Throughput">
+<a class="anchor" href="#Provisioned-Throughput" aria-hidden="true"><span class="octicon octicon-link"></span></a>Provisioned Throughput<a class="anchor-link" href="#Provisioned-Throughput"> </a>
+</h2>
+<p>Provisioned Throughput is measured in capacity units.</p>
+<ul>
+<li>Write capacity units<ul>
+<li>1 x 1KB write per second</li>
+</ul>
+</li>
+<li>Strongly consistent reads<ul>
+<li>1 x 4KB read per second</li>
+</ul>
+</li>
+<li>Eventually consistent reads (default option)<ul>
+<li>2 x 4KB read per second</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example-1:">
+<a class="anchor" href="#Example-1:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 1:<a class="anchor-link" href="#Example-1:"> </a>
+</h3>
+<p>Imagine a table that has 5 read capacity units and 5 write capacity units</p>
+<p>This configuration will be able to perform</p>
+<ul>
+<li>5 x 4KB strongly consistent reads = 20KB per second</li>
+<li>Twice as many eventually consistent reads = 40KB per second</li>
+<li>5 x 1KB writes = 5KB writes</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example-2:">
+<a class="anchor" href="#Example-2:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 2:<a class="anchor-link" href="#Example-2:"> </a>
+</h3>
+<p>Imagine you have an application that needs to read 80 items per second. Each item is 3KB in size and you need strongly consistent reads.
+How many read capacity units will you need?</p>
+
+<pre><code>Ans:
+
+Number of 4KB read capacity units needed per item = 3KB/4KB = 0.75 ~= 1
+
+Number of items = 80
+
+Therefore read capacity units needed = 80 x 1 = 80 for STRONGLY CONSISTENT
+
+What if you need Eventually consistent reads?
+
+    = #Strongly Consistent /  2
+    = 80/2
+    = 40 for EVENTUALLY CONSISTENT</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example-3:">
+<a class="anchor" href="#Example-3:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 3:<a class="anchor-link" href="#Example-3:"> </a>
+</h3>
+<p>Imagine you need to write 100 items per second to your DynamoDB table. Each item size 512 bytes.
+Each write capacity unit gives 1 1KB write per second. How many write capacity units will you need to provision?</p>
+
+<pre><code>Ans:
+
+- Number of write capacity of 1KB/sec needed per item = 512/1024 bytes = 0.5 ~= 1 write capacity unit per item
+- Number of writes required per second = 100
+- Therefore, number of write capacity units required = 100 x 1 write capacity unit per item = 100</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="DynamoDB-On-Demand-Capacity">
+<a class="anchor" href="#DynamoDB-On-Demand-Capacity" aria-hidden="true"><span class="octicon octicon-link"></span></a>DynamoDB On Demand Capacity<a class="anchor-link" href="#DynamoDB-On-Demand-Capacity"> </a>
+</h2>
+<p>A pricing model for DynamoDB. Charges will be based on the activity. Can autoscale read/write capacity units as needed.</p>
+
+<pre><code>Great for:
+
+- Unpredictable workload
+- New applications where the use pattern is not known yet
+- When you want to pay for only what you use</code></pre>
 
 </div>
 </div>
