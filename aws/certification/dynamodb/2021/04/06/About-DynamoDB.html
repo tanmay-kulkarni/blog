@@ -111,6 +111,11 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h2"><a href="#Local-Secondary-Index">Local Secondary Index </a></li>
 <li class="toc-entry toc-h2"><a href="#Global-Secondary-index">Global Secondary index </a></li>
+<li class="toc-entry toc-h2"><a href="#Scan-and-Query-API-calls">Scan and Query API calls </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Improving-performance">Improving performance </a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul><!--
@@ -162,6 +167,36 @@ window.onload = wrap_img;
     Can be created even after creation of the table.
     It allows you to use a different partition key as well as the sort key than your main table
     Gives a totally different view of the table than the original table created (because of the above point)</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Scan-and-Query-API-calls">
+<a class="anchor" href="#Scan-and-Query-API-calls" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scan and Query API calls<a class="anchor-link" href="#Scan-and-Query-API-calls"> </a>
+</h2>
+<pre><code>QUERY:
+</code></pre>
+<p>A query operation finds items in your table based on the primary key attribute, and a distinct value to search for. A query can be refined by using an optional sort key name and value. By default a query returns all the attributes. You can limit the attributes to the specific attributes you want by using the <code>ProjectionExpression</code> parameter.</p>
+<p>Results are always sorted by the sort key.</p>
+<p>You can reverse the order of the result by setting the <code>ScanIndexForward</code> attribute to False.</p>
+<p><strong>REMEMBER: <code>ScanIndexForward</code> is applicable only to queries and NOT to scans, despite the name</strong></p>
+<p>By default all queries are eventually consistent.</p>
+
+<pre><code>SCAN:
+
+</code></pre>
+<p>A scan operation examines every attribute in the table. Again, you can use the <code>ProjectionExpression</code> parameter to limit the attributes returned.</p>
+<p>A query is more efficient than Scan.</p>
+<h3 id="Improving-performance">
+<a class="anchor" href="#Improving-performance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Improving performance<a class="anchor-link" href="#Improving-performance"> </a>
+</h3>
+<pre><code>* Set smaller page size
+* Avoid scans if possible
+* By using parallel scan. A scan by default operates in a sequential manner. But you can configure your DynamoDB to use parallel scans by logically dividing a table or index into segments and scanning each segment in parallel.
+* Isolate scan operations to specific tables and segregate them from mission critical data</code></pre>
 
 </div>
 </div>
