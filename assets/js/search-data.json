@@ -2,6 +2,39 @@
   
     
         "post0": {
+            "title": "Things to remember about AWS DynamoDB",
+            "content": "Indexes . A secondary index allows you to perform more flexible querying on DynamoDB. It allows you to query on an attribute which is not the primary key. This can be done using . Global Secondary Index | Local Secondary Index | . You select the columns you want to include in the index and run your searches on the index instead of the entire dataset. . Local Secondary Index . Limitation: Can only be created when you&#39;re creating the table. . Has the same partition key as your original table, but a different sort key. . Global Secondary index . Advantage: Can be created even after creation of the table. It allows you to use a different partition key as well as the sort key than your main table Gives a totally different view of the table than the original table created (because of the above point) .",
+            "url": "https://tanmay-kulkarni.github.io/blog/aws/certification/dynamodb/2021/04/06/About-DynamoDB.html",
+            "relUrl": "/aws/certification/dynamodb/2021/04/06/About-DynamoDB.html",
+            "date": " • Apr 6, 2021"
+        }
+        
+    
+  
+    
+        ,"post1": {
+            "title": "Empty Blog",
+            "content": "",
+            "url": "https://tanmay-kulkarni.github.io/blog/2021/04/05/Empty.html",
+            "relUrl": "/2021/04/05/Empty.html",
+            "date": " • Apr 5, 2021"
+        }
+        
+    
+  
+    
+        ,"post2": {
+            "title": "iPython tricks",
+            "content": "Output of a command can be assigned to a variable . This works only in IPython or Jupyter, it will not run in regular Python | . | . ls = !ls . type(ls) . IPython.utils.text.SList . Commands can be passed to a python interpreter . - python -c &quot;import datetime;print(datetime.datetime.utcnow())&quot; . !df -h . Filesystem Size Used Avail Capacity iused ifree %iused Mounted on /dev/disk1s1s1 466Gi 14Gi 337Gi 4% 568975 4881883905 0% / devfs 230Ki 230Ki 0Bi 100% 796 0 100% /dev /dev/disk1s5 466Gi 6.0Gi 337Gi 2% 6 4882452874 0% /System/Volumes/VM /dev/disk1s3 466Gi 371Mi 337Gi 1% 1298 4882451582 0% /System/Volumes/Preboot /dev/disk1s6 466Gi 2.1Mi 337Gi 1% 15 4882452865 0% /System/Volumes/Update /dev/disk1s2 466Gi 108Gi 337Gi 25% 675547 4881777333 0% /System/Volumes/Data map auto_home 0Bi 0Bi 0Bi 100% 0 0 100% /System/Volumes/Data/home pCloud.fs 8.0Gi 1.9Gi 6.1Gi 25% 0 0 100% /Users/tanmay/pCloud Drive /Users/tanmay/Downloads/TextMate.app 466Gi 104Gi 346Gi 24% 645214 4881807666 0% /private/var/folders/nh/wr9z17hd7kdd2wn87xjknv_40000gn/T/AppTranslocation/A1844839-7447-4F97-8106-9798FF76A7B3 .",
+            "url": "https://tanmay-kulkarni.github.io/blog/python/2021/04/04/general-python.html",
+            "relUrl": "/python/2021/04/04/general-python.html",
+            "date": " • Apr 4, 2021"
+        }
+        
+    
+  
+    
+        ,"post3": {
             "title": "Git Quick Reference",
             "content": "File diff . To compare the state of your files with those in the staging area, you can use git diff -r HEAD. The -r flag means &quot;compare to a particular revision&quot;, and HEAD is a shortcut meaning &quot;the most recent commit&quot;. . git diff -r HEAD | . Seeing changes to a specific file . A project&#39;s entire log can be overwhelming, so it&#39;s often useful to inspect only the changes to particular files or directories. You can do this using git log path, where path is the path to a specific file or directory. The log for a file shows changes made to that file; the log for a directory shows when files were added or deleted in that directory, rather than when the contents of the directory&#39;s files were changed. .",
             "url": "https://tanmay-kulkarni.github.io/blog/git/2021/03/21/Git-Quick-Reference.html",
@@ -12,18 +45,7 @@
     
   
     
-        ,"post1": {
-            "title": "Empty Blog",
-            "content": "",
-            "url": "https://tanmay-kulkarni.github.io/blog/2021/03/20/Empty.html",
-            "relUrl": "/2021/03/20/Empty.html",
-            "date": " • Mar 20, 2021"
-        }
-        
-    
-  
-    
-        ,"post2": {
+        ,"post4": {
             "title": "requests module in Python",
             "content": "import requests . d = { &#39;action&#39;: &#39;updateboardmembers&#39;, &#39;user_id&#39;: &#39;539&#39;, &#39;board&#39;: 30, &#39;boardfemale&#39;: 7, &#39;boardcolor&#39;: 1, &#39;boardfemalecolor&#39;: 2 } . r = requests.post(&quot;http://54.149.150.124/webhook&quot;, data=d) print(r.status_code, r.reason) . 200 OK .",
             "url": "https://tanmay-kulkarni.github.io/blog/requests/python/2021/02/22/requests-module-in-python.html",
@@ -34,7 +56,7 @@
     
   
     
-        ,"post3": {
+        ,"post5": {
             "title": "pandas tricks",
             "content": "import pandas as pd . round((int(1)/(int(6))) * 100) . 17 .",
             "url": "https://tanmay-kulkarni.github.io/blog/pandas/python/2021/02/21/pandas-tricks.html",
@@ -45,7 +67,7 @@
     
   
     
-        ,"post4": {
+        ,"post6": {
             "title": "Test Blog post",
             "content": "def some_function(a, b): return a*b . .",
             "url": "https://tanmay-kulkarni.github.io/blog/2020/11/01/Test.html",
@@ -56,7 +78,7 @@
     
   
     
-        ,"post5": {
+        ,"post7": {
             "title": "Fastpages Notebook Blog Post",
             "content": "About . This notebook is a demonstration of some of capabilities of fastpages with notebooks. . With fastpages you can save your jupyter notebooks into the _notebooks folder at the root of your repository, and they will be automatically be converted to Jekyll compliant blog posts! . Front Matter . The first cell in your Jupyter Notebook or markdown blog post contains front matter. Front matter is metadata that can turn on/off options in your Notebook. It is formatted like this: . # &quot;My Title&quot; &gt; &quot;Awesome summary&quot; - toc:true- branch: master- badges: true- comments: true - author: Hamel Husain &amp; Jeremy Howard - categories: [fastpages, jupyter] . Setting toc: true will automatically generate a table of contents | Setting badges: true will automatically include GitHub and Google Colab links to your notebook. | Setting comments: true will enable commenting on your blog post, powered by utterances. | . The title and description need to be enclosed in double quotes only if they include special characters such as a colon. More details and options for front matter can be viewed on the front matter section of the README. . Markdown Shortcuts . A #hide comment at the top of any code cell will hide both the input and output of that cell in your blog post. . A #hide_input comment at the top of any code cell will only hide the input of that cell. . The comment #hide_input was used to hide the code that produced this. . put a #collapse-hide flag at the top of any cell if you want to hide that cell by default, but give the reader the option to show it: . import pandas as pd import altair as alt . . put a #collapse-show flag at the top of any cell if you want to show that cell by default, but give the reader the option to hide it: . cars = &#39;https://vega.github.io/vega-datasets/data/cars.json&#39; movies = &#39;https://vega.github.io/vega-datasets/data/movies.json&#39; sp500 = &#39;https://vega.github.io/vega-datasets/data/sp500.csv&#39; stocks = &#39;https://vega.github.io/vega-datasets/data/stocks.csv&#39; flights = &#39;https://vega.github.io/vega-datasets/data/flights-5k.json&#39; . . Interactive Charts With Altair . Charts made with Altair remain interactive. Example charts taken from this repo, specifically this notebook. . Example 1: DropDown . # use specific hard-wired values as the initial selected values selection = alt.selection_single( name=&#39;Select&#39;, fields=[&#39;Major_Genre&#39;, &#39;MPAA_Rating&#39;], init={&#39;Major_Genre&#39;: &#39;Drama&#39;, &#39;MPAA_Rating&#39;: &#39;R&#39;}, bind={&#39;Major_Genre&#39;: alt.binding_select(options=genres), &#39;MPAA_Rating&#39;: alt.binding_radio(options=mpaa)} ) # scatter plot, modify opacity based on selection alt.Chart(df).mark_circle().add_selection( selection ).encode( x=&#39;Rotten_Tomatoes_Rating:Q&#39;, y=&#39;IMDB_Rating:Q&#39;, tooltip=&#39;Title:N&#39;, opacity=alt.condition(selection, alt.value(0.75), alt.value(0.05)) ) . Example 2: Tooltips . alt.Chart(df).mark_circle().add_selection( alt.selection_interval(bind=&#39;scales&#39;, encodings=[&#39;x&#39;]) ).encode( alt.X(&#39;Rotten_Tomatoes_Rating&#39;, type=&#39;quantitative&#39;), alt.Y(&#39;IMDB_Rating&#39;, type=&#39;quantitative&#39;, axis=alt.Axis(minExtent=30)), # y=alt.Y(&#39;IMDB_Rating:Q&#39;, ), # use min extent to stabilize axis title placement tooltip=[&#39;Title:N&#39;, &#39;Release_Date:N&#39;, &#39;IMDB_Rating:Q&#39;, &#39;Rotten_Tomatoes_Rating:Q&#39;] ).properties( width=500, height=400 ) . Example 3: More Tooltips . label = alt.selection_single( encodings=[&#39;x&#39;], # limit selection to x-axis value on=&#39;mouseover&#39;, # select on mouseover events nearest=True, # select data point nearest the cursor empty=&#39;none&#39; # empty selection includes no data points ) # define our base line chart of stock prices base = alt.Chart().mark_line().encode( alt.X(&#39;date:T&#39;), alt.Y(&#39;price:Q&#39;, scale=alt.Scale(type=&#39;log&#39;)), alt.Color(&#39;symbol:N&#39;) ) alt.layer( base, # base line chart # add a rule mark to serve as a guide line alt.Chart().mark_rule(color=&#39;#aaa&#39;).encode( x=&#39;date:T&#39; ).transform_filter(label), # add circle marks for selected time points, hide unselected points base.mark_circle().encode( opacity=alt.condition(label, alt.value(1), alt.value(0)) ).add_selection(label), # add white stroked text to provide a legible background for labels base.mark_text(align=&#39;left&#39;, dx=5, dy=-5, stroke=&#39;white&#39;, strokeWidth=2).encode( text=&#39;price:Q&#39; ).transform_filter(label), # add text labels for stock prices base.mark_text(align=&#39;left&#39;, dx=5, dy=-5).encode( text=&#39;price:Q&#39; ).transform_filter(label), data=stocks ).properties( width=500, height=400 ) . Data Tables . You can display tables per the usual way in your blog: . df[[&#39;Title&#39;, &#39;Worldwide_Gross&#39;, &#39;Production_Budget&#39;, &#39;Distributor&#39;, &#39;MPAA_Rating&#39;, &#39;IMDB_Rating&#39;, &#39;Rotten_Tomatoes_Rating&#39;]].head() . Title Worldwide_Gross Production_Budget Distributor MPAA_Rating IMDB_Rating Rotten_Tomatoes_Rating . 0 The Land Girls | 146083.0 | 8000000.0 | Gramercy | R | 6.1 | NaN | . 1 First Love, Last Rites | 10876.0 | 300000.0 | Strand | R | 6.9 | NaN | . 2 I Married a Strange Person | 203134.0 | 250000.0 | Lionsgate | None | 6.8 | NaN | . 3 Let&#39;s Talk About Sex | 373615.0 | 300000.0 | Fine Line | None | NaN | 13.0 | . 4 Slam | 1087521.0 | 1000000.0 | Trimark | R | 3.4 | 62.0 | . Images . Local Images . You can reference local images and they will be copied and rendered on your blog automatically. You can include these with the following markdown syntax: . ![](my_icons/fastai_logo.png) . . Remote Images . Remote images can be included with the following markdown syntax: . ![](https://image.flaticon.com/icons/svg/36/36686.svg) . . Animated Gifs . Animated Gifs work, too! . ![](https://upload.wikimedia.org/wikipedia/commons/7/71/ChessPawnSpecialMoves.gif) . . Captions . You can include captions with markdown images like this: . ![](https://www.fast.ai/images/fastai_paper/show_batch.png &quot;Credit: https://www.fast.ai/2020/02/13/fastai-A-Layered-API-for-Deep-Learning/&quot;) . . Other Elements . GitHub Flavored Emojis . Typing I give this post two :+1:! will render this: . I give this post two :+1:! . Tweetcards . Typing &gt; twitter: https://twitter.com/jakevdp/status/1204765621767901185?s=20 will render this: Altair 4.0 is released! https://t.co/PCyrIOTcvvTry it with: pip install -U altairThe full list of changes is at https://t.co/roXmzcsT58 ...read on for some highlights. pic.twitter.com/vWJ0ZveKbZ . &mdash; Jake VanderPlas (@jakevdp) December 11, 2019 . Youtube Videos . Typing &gt; youtube: https://youtu.be/XfoYk_Z5AkI will render this: . Boxes / Callouts . Typing &gt; Warning: There will be no second warning! will render this: . Warning: There will be no second warning! . Typing &gt; Important: Pay attention! It&#39;s important. will render this: . Important: Pay attention! It&#8217;s important. . Typing &gt; Tip: This is my tip. will render this: . Tip: This is my tip. . Typing &gt; Note: Take note of this. will render this: . Note: Take note of this. . Typing &gt; Note: A doc link to [an example website: fast.ai](https://www.fast.ai/) should also work fine. will render in the docs: . Note: A doc link to an example website: fast.ai should also work fine. . Footnotes . You can have footnotes in notebooks, however the syntax is different compared to markdown documents. This guide provides more detail about this syntax, which looks like this: . For example, here is a footnote {% fn 1 %}. And another {% fn 2 %} {{ &#39;This is the footnote.&#39; | fndetail: 1 }} {{ &#39;This is the other footnote. You can even have a [link](www.github.com)!&#39; | fndetail: 2 }} . For example, here is a footnote 1. . And another 2 . 1. This is the footnote.↩ . 2. This is the other footnote. You can even have a link!↩ .",
             "url": "https://tanmay-kulkarni.github.io/blog/jupyter/2020/02/20/test.html",
@@ -67,7 +89,7 @@
     
   
     
-        ,"post6": {
+        ,"post8": {
             "title": "An Example Markdown Post",
             "content": "Example Markdown Post . Basic setup . Jekyll requires blog post files to be named according to the following format: . YEAR-MONTH-DAY-filename.md . Where YEAR is a four-digit number, MONTH and DAY are both two-digit numbers, and filename is whatever file name you choose, to remind yourself what this post is about. .md is the file extension for markdown files. . The first line of the file should start with a single hash character, then a space, then your title. This is how you create a “level 1 heading” in markdown. Then you can create level 2, 3, etc headings as you wish but repeating the hash character, such as you see in the line ## File names above. . Basic formatting . You can use italics, bold, code font text, and create links. Here’s a footnote 1. Here’s a horizontal rule: . . Lists . Here’s a list: . item 1 | item 2 | . And a numbered list: . item 1 | item 2 | Boxes and stuff . This is a quotation . . You can include alert boxes …and… . . You can include info boxes Images . . Code . You can format text and code per usual . General preformatted text: . # Do a thing do_thing() . Python code and output: . # Prints &#39;2&#39; print(1+1) . 2 . Formatting text as shell commands: . echo &quot;hello world&quot; ./some_script.sh --option &quot;value&quot; wget https://example.com/cat_photo1.png . Formatting text as YAML: . key: value - another_key: &quot;another value&quot; . Tables . Column 1 Column 2 . A thing | Another thing | . Tweetcards . Altair 4.0 is released! https://t.co/PCyrIOTcvvTry it with: pip install -U altairThe full list of changes is at https://t.co/roXmzcsT58 ...read on for some highlights. pic.twitter.com/vWJ0ZveKbZ . &mdash; Jake VanderPlas (@jakevdp) December 11, 2019 Footnotes . This is the footnote. &#8617; . |",
             "url": "https://tanmay-kulkarni.github.io/blog/markdown/2020/01/14/test-markdown-post.html",

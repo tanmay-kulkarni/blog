@@ -4,19 +4,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Empty Blog | Tanmay’s World</title>
+<title>Things to remember about AWS DynamoDB | Tanmay’s World</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Empty Blog" />
+<meta property="og:title" content="Things to remember about AWS DynamoDB" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="An enthusiast data engineer’s musings." />
-<meta property="og:description" content="An enthusiast data engineer’s musings." />
-<link rel="canonical" href="https://tanmay-kulkarni.github.io/blog/2021/03/20/Empty.html" />
-<meta property="og:url" content="https://tanmay-kulkarni.github.io/blog/2021/03/20/Empty.html" />
+<meta name="description" content="This short compendium will help in preparing for the AWS certification exams" />
+<meta property="og:description" content="This short compendium will help in preparing for the AWS certification exams" />
+<link rel="canonical" href="https://tanmay-kulkarni.github.io/blog/aws/certification/dynamodb/2021/04/06/About-DynamoDB.html" />
+<meta property="og:url" content="https://tanmay-kulkarni.github.io/blog/aws/certification/dynamodb/2021/04/06/About-DynamoDB.html" />
 <meta property="og:site_name" content="Tanmay’s World" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-03-20T00:00:00-05:00" />
+<meta property="article:published_time" content="2021-04-06T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"An enthusiast data engineer’s musings.","url":"https://tanmay-kulkarni.github.io/blog/2021/03/20/Empty.html","@type":"BlogPosting","headline":"Empty Blog","dateModified":"2021-03-20T00:00:00-05:00","datePublished":"2021-03-20T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tanmay-kulkarni.github.io/blog/2021/03/20/Empty.html"},"@context":"https://schema.org"}</script>
+{"description":"This short compendium will help in preparing for the AWS certification exams","url":"https://tanmay-kulkarni.github.io/blog/aws/certification/dynamodb/2021/04/06/About-DynamoDB.html","@type":"BlogPosting","headline":"Things to remember about AWS DynamoDB","dateModified":"2021-04-06T00:00:00-05:00","datePublished":"2021-04-06T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tanmay-kulkarni.github.io/blog/aws/certification/dynamodb/2021/04/06/About-DynamoDB.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://tanmay-kulkarni.github.io/blog/feed.xml" title="Tanmay's World" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -71,8 +71,8 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Empty Blog</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-03-20T00:00:00-05:00" itemprop="datePublished">
-        Mar 20, 2021
+    <h1 class="post-title p-name" itemprop="name headline">Things to remember about AWS DynamoDB</h1><p class="page-description">This short compendium will help in preparing for the AWS certification exams</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-04-06T00:00:00-05:00" itemprop="datePublished">
+        Apr 6, 2021
       </time>
        • <span class="read-time" title="Estimated read time">
     
@@ -81,6 +81,19 @@ window.onload = wrap_img;
     
 </span></p>
 
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#aws">aws</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#certification">certification</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#dynamodb">dynamodb</a>
+        
+      
+      </p>
     
 
     
@@ -93,20 +106,71 @@ window.onload = wrap_img;
       </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <!--
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Indexes">Indexes </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Local-Secondary-Index">Local Secondary Index </a></li>
+<li class="toc-entry toc-h2"><a href="#Global-Secondary-index">Global Secondary index </a></li>
+</ul>
+</li>
+</ul><!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2021-1-06-Empty.ipynb
+# file to edit: _notebooks/2021-04-06-About-DynamoDB.ipynb
 -->
 
 <div class="container" id="notebook-container">
         
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Indexes">
+<a class="anchor" href="#Indexes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Indexes<a class="anchor-link" href="#Indexes"> </a>
+</h1>
+<p>A secondary index allows you to perform more flexible querying on DynamoDB. It allows you to query on an attribute which is not the primary key. This can be done using</p>
+<ul>
+<li>Global Secondary Index</li>
+<li>Local Secondary Index</li>
+</ul>
+<p>You select the columns you want to include in the index and run your searches on the index instead of the entire dataset.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Local-Secondary-Index">
+<a class="anchor" href="#Local-Secondary-Index" aria-hidden="true"><span class="octicon octicon-link"></span></a>Local Secondary Index<a class="anchor-link" href="#Local-Secondary-Index"> </a>
+</h2>
+<pre><code>Limitation: 
+    Can only be created when you're creating the table.
+</code></pre>
+<p>Has the same partition key as your original table, but a different sort key.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Global-Secondary-index">
+<a class="anchor" href="#Global-Secondary-index" aria-hidden="true"><span class="octicon octicon-link"></span></a>Global Secondary index<a class="anchor-link" href="#Global-Secondary-index"> </a>
+</h2>
+<pre><code>Advantage:
+    Can be created even after creation of the table.
+    It allows you to use a different partition key as well as the sort key than your main table
+    Gives a totally different view of the table than the original table created (because of the above point)</code></pre>
+
+</div>
+</div>
+</div>
 </div>
 
 
 
-  </div><a class="u-url" href="/blog/2021/03/20/Empty.html" hidden></a>
+  </div><a class="u-url" href="/blog/aws/certification/dynamodb/2021/04/06/About-DynamoDB.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
