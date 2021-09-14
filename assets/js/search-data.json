@@ -2,10 +2,10 @@
   
     
         "post0": {
-            "title": "AWS Certified Developer Associate Notes",
-            "content": "Dummy Title . 1. sub title 1 2. sub title 2 .",
-            "url": "https://tanmay-kulkarni.github.io/blog/aws/certification/2021/09/13/Test-from-pop-os.html",
-            "relUrl": "/aws/certification/2021/09/13/Test-from-pop-os.html",
+            "title": "Python Tricks",
+            "content": "Adding underscores to numbers . num1 = 10000000000 num2 = 90000000 sum1 = num1 + num2 print(sum1) . 10090000000 . num1 = 10_000_000_000 num2 = 90_000_000 sum2 = num1 + num2 print(sum2) . 10090000000 . sum1 == sum2 . True . More readability . print(f&#39;{sum2:,}&#39;) . Note that the type of the output gets changed, obviously . print(type(f&#39;{sum2:,}&#39;)) . &lt;class &#39;str&#39;&gt; . Use context manager to manage file handling . f = open(&#39;myfile.csv&#39;, &#39;r&#39;) file_contents = f.read() f.close() . Try a context manager instead. This way you don&#39;t have to remember to close the file handle . with open(&#39;myfile.csv&#39;, &#39;r&#39;) as f: file_contents = f.read() . The above concept of context managers is applicable not only to files, but to any other resource you might use such as threads. . Using the enumerate function . words = [&#39;A&#39;, &#39;and&#39;, &#39;B&#39;, &#39;play&#39;, &#39;God of war&#39;, &#39;together&#39;] index = 1 for word in words: print(index, word) index += 1 . 1 A 2 and 3 B 4 play 5 God of war 6 together . There&#39;s a better way to do this . for ix, word in enumerate(words, start=1): print(ix, word) . 1 A 2 and 3 B 4 play 5 God of war 6 together . Using the ZIP function . persons = [&#39;Bruce Wayne&#39;, &#39;Clark Kent&#39;, &#39;Peter Parker&#39;] heroes = [&#39;Batman&#39;, &#39;Superman&#39;, &#39;Spiderman&#39;] universes = [&#39;DC&#39;, &#39;DC&#39;, &#39;Marvel&#39;] for person, hero, universe in zip(persons, heroes, universes): print(f&#39;{hero} is actually {person} created by {universe}&#39;) . Batman is actually Bruce Wayne created by DC Superman is actually Clark Kent created by DC Spiderman is actually Peter Parker created by Marvel . Quick note about unpacking values . The following two lines of code result in a ValueError . a,b,c = (1,2,3,4,5) a,b,c,d,e = (1,2,3) . Unpacking fewer variables . a, b, *c = (1,2,3,4,5) print(f&#39;a = {a}&#39;) print(f&#39;b = {b}&#39;) print(f&#39;c = {c}&#39;) . a = 1 b = 2 c = [3, 4, 5] . Accepting passwords . from getpass import getpass username = input(&quot;Username: &quot;) password = getpass(&quot;Password: &quot;) print(&quot;Logging in...&quot;) . Logging in... . That&#39;s it for now! .",
+            "url": "https://tanmay-kulkarni.github.io/blog/python/tricks/2021/09/13/Test-from-pop-os.html",
+            "relUrl": "/python/tricks/2021/09/13/Test-from-pop-os.html",
             "date": " • Sep 13, 2021"
         }
         
@@ -15,9 +15,9 @@
         ,"post1": {
             "title": "Empty Blog",
             "content": "",
-            "url": "https://tanmay-kulkarni.github.io/blog/2021/09/12/Empty.html",
-            "relUrl": "/2021/09/12/Empty.html",
-            "date": " • Sep 12, 2021"
+            "url": "https://tanmay-kulkarni.github.io/blog/2021/09/13/Empty.html",
+            "relUrl": "/2021/09/13/Empty.html",
+            "date": " • Sep 13, 2021"
         }
         
     
