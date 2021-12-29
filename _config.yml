@@ -7,7 +7,7 @@
 # https://learnxinyminutes.com/docs/yaml/
 
 title: Tanmay's World 
-description: An enthusiast data engineer's musings. 
+description: A data engineer's musings. 
 github_username: tanmay-kulkarni
 # you can comment the below line out if your repo name is not different than your baseurl
 github_repo: "blog"
