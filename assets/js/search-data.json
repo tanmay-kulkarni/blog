@@ -2,22 +2,22 @@
   
     
         "post0": {
-            "title": "My tmux.conf file",
-            "content": "unbind C-b set-option -g prefix C-a bind-key C-a send-prefix bind -Tcopy-mode-vi v send -X begin-selection # split panes using | and - bind | split-window -h bind - split-window -v unbind &#39;&quot;&#39; unbind % # switch panes using Alt-arrow without prefix bind -n M-Left select-pane -L bind -n M-Right select-pane -R bind -n M-Up select-pane -U bind -n M-Down select-pane -D # Enable mouse mode (tmux 2.1 and above) set -g mouse on bind r source-file ~/.tmux.conf # don&#39;t rename windows automatically set-option -g allow-rename off ###################### ### DESIGN CHANGES ### ###################### # loud or quiet? set -g visual-activity off set -g visual-bell off set -g visual-silence off setw -g monitor-activity off set -g bell-action none # modes setw -g clock-mode-colour colour5 setw -g mode-style &#39;fg=colour1 bg=colour18 bold&#39; # panes set -g pane-border-style &#39;fg=colour19 bg=colour0&#39; set -g pane-active-border-style &#39;bg=colour0 fg=colour9&#39; # statusbar set -g status-position bottom set -g status-justify left set -g status-style &#39;bg=colour18 fg=colour137 dim&#39; set -g status-left &#39;&#39; set -g status-right &#39;#[fg=colour233,bg=colour19] %d/%m #[fg=colour233,bg=colour8] %H:%M:%S &#39; set-option -g status-right &quot;#{network_bandwidth}&quot; set -g status-right-length 50 set -g status-left-length 20 setw -g window-status-current-style &#39;fg=colour1 bg=colour19 bold&#39; setw -g window-status-current-format &#39; #I#[fg=colour249]:#[fg=colour255]#W#[fg=colour249]#F &#39; setw -g window-status-style &#39;fg=colour9 bg=colour18&#39; setw -g window-status-format &#39; #I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F &#39; setw -g window-status-bell-style &#39;fg=colour255 bg=colour1 bold&#39; # messages set -g message-style &#39;fg=colour232 bg=colour16 bold&#39; set -g @plugin &#39;tmux-plugins/tpm&#39; set -g @plugin &#39;tmux-plugins/tmux-sensible&#39; set -g @plugin &#39;dracula/tmux&#39; set -g @plugin &#39;tmux-plugins/tmux-resurrect&#39; set -g @plugin &#39;tmux-plugins/tmux-continuum&#39; set -g @plugin &#39;CrispyConductor/tmux-copy-toolkit&#39; set -g @plugin &#39;xamut/tmux-network-bandwidth&#39; # set -g @plugin &#39;tmux-plugins/tmux-yank&#39; # set 256 colors set -s default-terminal &#39;tmux-256color&#39; run &#39;~/.tmux/plugins/tpm/tpm&#39; .",
-            "url": "https://tanmay-kulkarni.github.io/blog/tmux/work-environment/2021/10/17/my-tmux-conf.html",
-            "relUrl": "/tmux/work-environment/2021/10/17/my-tmux-conf.html",
-            "date": " • Oct 17, 2021"
+            "title": "Empty Blog",
+            "content": "",
+            "url": "https://tanmay-kulkarni.github.io/blog/2021/12/28/Empty.html",
+            "relUrl": "/2021/12/28/Empty.html",
+            "date": " • Dec 28, 2021"
         }
         
     
   
     
         ,"post1": {
-            "title": "Empty Blog",
-            "content": "",
-            "url": "https://tanmay-kulkarni.github.io/blog/2021/10/16/Empty.html",
-            "relUrl": "/2021/10/16/Empty.html",
-            "date": " • Oct 16, 2021"
+            "title": "My tmux.conf file",
+            "content": "unbind C-b set-option -g prefix C-a bind-key C-a send-prefix bind -Tcopy-mode-vi v send -X begin-selection # split panes using | and - bind | split-window -h bind - split-window -v unbind &#39;&quot;&#39; unbind % # switch panes using Alt-arrow without prefix bind -n M-Left select-pane -L bind -n M-Right select-pane -R bind -n M-Up select-pane -U bind -n M-Down select-pane -D # Enable mouse mode (tmux 2.1 and above) set -g mouse on bind r source-file ~/.tmux.conf # don&#39;t rename windows automatically set-option -g allow-rename off ###################### ### DESIGN CHANGES ### ###################### # loud or quiet? set -g visual-activity off set -g visual-bell off set -g visual-silence off setw -g monitor-activity off set -g bell-action none # modes setw -g clock-mode-colour colour5 setw -g mode-style &#39;fg=colour1 bg=colour18 bold&#39; # panes set -g pane-border-style &#39;fg=colour19 bg=colour0&#39; set -g pane-active-border-style &#39;bg=colour0 fg=colour9&#39; # statusbar set -g status-position bottom set -g status-justify left set -g status-style &#39;bg=colour18 fg=colour137 dim&#39; set -g status-left &#39;&#39; set -g status-right &#39;#[fg=colour233,bg=colour19] %d/%m #[fg=colour233,bg=colour8] %H:%M:%S &#39; set-option -g status-right &quot;#{network_bandwidth}&quot; set -g status-right-length 50 set -g status-left-length 20 setw -g window-status-current-style &#39;fg=colour1 bg=colour19 bold&#39; setw -g window-status-current-format &#39; #I#[fg=colour249]:#[fg=colour255]#W#[fg=colour249]#F &#39; setw -g window-status-style &#39;fg=colour9 bg=colour18&#39; setw -g window-status-format &#39; #I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F &#39; setw -g window-status-bell-style &#39;fg=colour255 bg=colour1 bold&#39; # messages set -g message-style &#39;fg=colour232 bg=colour16 bold&#39; set -g @plugin &#39;tmux-plugins/tpm&#39; set -g @plugin &#39;tmux-plugins/tmux-sensible&#39; set -g @plugin &#39;dracula/tmux&#39; set -g @plugin &#39;tmux-plugins/tmux-resurrect&#39; set -g @plugin &#39;tmux-plugins/tmux-continuum&#39; set -g @plugin &#39;CrispyConductor/tmux-copy-toolkit&#39; set -g @plugin &#39;xamut/tmux-network-bandwidth&#39; # set -g @plugin &#39;tmux-plugins/tmux-yank&#39; # set 256 colors set -s default-terminal &#39;tmux-256color&#39; run &#39;~/.tmux/plugins/tpm/tpm&#39; .",
+            "url": "https://tanmay-kulkarni.github.io/blog/tmux/work-environment/2021/10/17/my-tmux-conf.html",
+            "relUrl": "/tmux/work-environment/2021/10/17/my-tmux-conf.html",
+            "date": " • Oct 17, 2021"
         }
         
     
