@@ -77,7 +77,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      11 min read
     
 </span></p>
 
@@ -119,6 +119,16 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#Good-metrics-to-scale-on">Good metrics to scale on </a></li>
 <li class="toc-entry toc-h3"><a href="#Auto-Scaling-Groups---Cooldowns">Auto Scaling Groups - Cooldowns </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Relational-Database-Service-(RDS)">Relational Database Service (RDS) </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#RDS-Read-Replica">RDS Read Replica </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#RDS-Multi-AZ-(Disaster-Recovery)">RDS Multi AZ (Disaster Recovery) </a></li>
+<li class="toc-entry toc-h3"><a href="#RDS-Security---Encryption">RDS Security - Encryption </a></li>
 </ul>
 </li>
 </ul>
@@ -346,6 +356,8 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li>Supports multiple listeners with multiple SSL certificates. It uses Server Name Indication (SNI) to make it work.</li>
+<li>Lambda function can be a registered target in a target group of an ALB</li>
+<li><strong>You can't attach an Elastic IP address to Application Load Balancers.</strong></li>
 </ul>
 </li>
 <li>
@@ -533,6 +545,88 @@ window.onload = wrap_img;
 </ul>
 </li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Relational-Database-Service-(RDS)">
+<a class="anchor" href="#Relational-Database-Service-(RDS)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Relational Database Service (RDS)<a class="anchor-link" href="#Relational-Database-Service-(RDS)"> </a>
+</h1>
+<ul>
+<li>You can't SSH into your an RDS instance</li>
+<li>Automated Backups<ul>
+<li>Daily full backup of the database (during the maintenance window)</li>
+<li>Transaction logs are backed-up by RDS every 5 minutes<ul>
+<li>Ability to restore to any point in time from oldest backup to 5 minutes ago</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>DB Snapshots</p>
+<ul>
+<li>Manually triggered by the user</li>
+<li>Retention of backup for as long as you want</li>
+</ul>
+</li>
+<li>
+<p>RDS - Storage Auto Scaling</p>
+<ul>
+<li>When RDS detects you are running our of free database storage, it scales automatically</li>
+<li>You have to set maximum storage theshold (maximum limit for DB storage)</li>
+</ul>
+</li>
+</ul>
+<h2 id="RDS-Read-Replica">
+<a class="anchor" href="#RDS-Read-Replica" aria-hidden="true"><span class="octicon octicon-link"></span></a>RDS Read Replica<a class="anchor-link" href="#RDS-Read-Replica"> </a>
+</h2>
+<pre><code>- You can create upto 5 Read Replicas
+- Read Replicas can be within AZ, Cross AZ or Cross Region
+- Relication is ASYNCHRONOUS... so reads are eventually consistent
+- Replicas can be promoted to their own DB
+- Read replicas are used only for SELECT (=read) kind of queries. No Insert, Update, Delete is allowed
+- In AWS generally there's a cost when data goes from one AZ to another. **But for RDS Read Replicas, within the same region, you don't pay that fee.**
+
+</code></pre>
+<h3 id="RDS-Multi-AZ-(Disaster-Recovery)">
+<a class="anchor" href="#RDS-Multi-AZ-(Disaster-Recovery)" aria-hidden="true"><span class="octicon octicon-link"></span></a>RDS Multi AZ (Disaster Recovery)<a class="anchor-link" href="#RDS-Multi-AZ-(Disaster-Recovery)"> </a>
+</h3>
+<pre><code>- Synchronous replication to a standby instance
+- One DNS name -- automatic failover to standby
+- Failover in case of loss of AZ, loss of network, instance or storage failure
+- No manual intervention is needed in apps
+- Note: Read Replicas can be setup as Mutli AZ for disaster recovery
+
+</code></pre>
+<h3 id="RDS-Security---Encryption">
+<a class="anchor" href="#RDS-Security---Encryption" aria-hidden="true"><span class="octicon octicon-link"></span></a>RDS Security - Encryption<a class="anchor-link" href="#RDS-Security---Encryption"> </a>
+</h3>
+<pre><code>* At rest encrypption
+    - Possibility to encrypt the master and read replicas with AWS KMS - AES-256 encryption
+    - Encryption has to be defined at launch time
+    - If the master is not encrypted, the read replicas cannot be encrypted
+    - You can also enable Transparent Data Encryption (TDE) available for Oracle and SQL server
+
+* In-flight encryption
+    - SSL certificates to encrypt data to RDS in flight
+    - Provide SSL options with trust certificate when connecting to database
+    - To enforce SSL:
+        * PostgreSQL: rds.force_ssl=1 in the AWS RDS Console (Parameter Groups)
+        * MySQL: Within the DB:
+                GRANT USAGE ON *.* TO 'mysqluser'@'%' REQUIRE SSL;
+
+* Encrypting RDS backups
+    - Snapshots of un-encrypted RDS databases are un-encrypted
+    - Snapshots of encrypted RDS databases are encrypted
+
+* To encrypt an un-encrypted RDS database:
+    - Create a snapshot of the un-encrypted database
+    - Copy the snapshot and enable encryption for the snapshot
+    - Restore the database from the encrypted snapshot
+    - Migrate the application to the new database, and delete the old database</code></pre>
 
 </div>
 </div>
