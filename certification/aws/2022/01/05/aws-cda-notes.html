@@ -77,7 +77,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      13 min read
     
 </span></p>
 
@@ -129,8 +129,10 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#RDS-Multi-AZ-(Disaster-Recovery)">RDS Multi AZ (Disaster Recovery) </a></li>
 <li class="toc-entry toc-h3"><a href="#RDS-Security---Encryption">RDS Security - Encryption </a></li>
+<li class="toc-entry toc-h3"><a href="#Aurora-High-Availability-and-Read-Scaling">Aurora High Availability and Read Scaling </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#Elasticache">Elasticache </a></li>
 </ul>
 </li>
 </ul><!--
@@ -627,6 +629,72 @@ window.onload = wrap_img;
     - Copy the snapshot and enable encryption for the snapshot
     - Restore the database from the encrypted snapshot
     - Migrate the application to the new database, and delete the old database</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Aurora-High-Availability-and-Read-Scaling">
+<a class="anchor" href="#Aurora-High-Availability-and-Read-Scaling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Aurora High Availability and Read Scaling<a class="anchor-link" href="#Aurora-High-Availability-and-Read-Scaling"> </a>
+</h3>
+<pre><code>* 6 copies of your data across 3 AZ
+    - 4 copies out of 6 are needed for writes
+    - 3 copies out of 6 are needed for reads
+* Automated failover for master in less than 30 seconds
+* You can have Master + upto 15 Aurora Read Replicas (have to choose while creating the DB)
+* Support Cross Region Relication
+* Aurora provides 
+        - Writer Endpoints --&gt; An Endpoint that always points to the master
+        - Reader Endpoints --&gt; An Endpoint for READ requests. Takes care of autoscaling and loadbalancing Read Replicas</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Elasticache">
+<a class="anchor" href="#Elasticache" aria-hidden="true"><span class="octicon octicon-link"></span></a>Elasticache<a class="anchor-link" href="#Elasticache"> </a>
+</h2>
+<pre><code>* Managed service for Redis and Memcached
+* In memory databases with really high performance, low latency
+* Helps reduce load off of databases and read intensive workloads
+* AWS takes care of OS maintenance/patching, optimizations, setup, configuration, failover recovery and backups
+
+* REDIS
+    - Multi AZ with Auto-Failover
+    - Read Replicas to scale reads and have high availability
+    - Backup and restore features
+* MEMCACHED
+    - Multi-node for partitioning of data (sharding)
+    - No high availability (replication)
+    - Non persistent
+    - No backup and restore
+    - Multi-threaded architecture
+
+* Caching Strategies
+    - Lazy Loading / Cache-Aside / Lazy Population
+        * Pros:
+                1. Only requested data is cached (cache doesn't have unused data)
+                2. Node failovers are not fatal
+        * Cons:
+                1. Cache miss penalty that results in 3 round trips
+                2. Stale data: Data can be updated in the database but outdated in the cache
+    - Write Though: Add or update cache when database is updated
+        * Pros:
+                1. Data in cache is never stale
+                2. Write penalty requires 2 calls as compared to 3 calls for cache miss penalty in Lazy loading
+
+        * Cons:
+                1. Missing data until it's added/updated in the cache
+                2. A lot of data in the cache may not be read
+
+* Cache Evictions and Time-to-live (TTL)
+        * Cache eviction can occur in three ways:
+                1. You delete the item explicitly from the cache
+                2. Item is evicted because the memory is full and it's </code></pre>
 
 </div>
 </div>
