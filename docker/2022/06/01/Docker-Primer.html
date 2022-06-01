@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Docker quick reference | Tanmay’s World</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Docker quick reference" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The only containerization technology you need" />
+<meta property="og:description" content="The only containerization technology you need" />
+<link rel="canonical" href="https://tanmay-kulkarni.github.io/blog/docker/2022/06/01/Docker-Primer.html" />
+<meta property="og:url" content="https://tanmay-kulkarni.github.io/blog/docker/2022/06/01/Docker-Primer.html" />
+<meta property="og:site_name" content="Tanmay’s World" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-01T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://tanmay-kulkarni.github.io/blog/docker/2022/06/01/Docker-Primer.html","@type":"BlogPosting","headline":"Docker quick reference","dateModified":"2022-06-01T00:00:00-05:00","datePublished":"2022-06-01T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tanmay-kulkarni.github.io/blog/docker/2022/06/01/Docker-Primer.html"},"description":"The only containerization technology you need","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://tanmay-kulkarni.github.io/blog/feed.xml" title="Tanmay's World" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Tanmay&#39;s World</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Docker quick reference</h1><p class="page-description">The only containerization technology you need</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-06-01T00:00:00-05:00" itemprop="datePublished">
+        Jun 1, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#docker">docker</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Common-Docker-commands">Common Docker commands </a></li>
+<li class="toc-entry toc-h2"><a href="#Important-points">Important points </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-06-01-Docker-Primer.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Docker is based on LXC, an operating system level containerization method. Docker offers a high level tool on top of that.</li>
+<li>The main purpose of Docker is to package and containerize applications with their dependencies and ship them</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Common-Docker-commands">
+<a class="anchor" href="#Common-Docker-commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>Common Docker commands<a class="anchor-link" href="#Common-Docker-commands"> </a>
+</h2>
+<ol>
+<li>
+<code>docker run</code><ul>
+<li>Run a container from an image. If the image is not present on the host, docker will search and download it from the configured registry (DockerHub) </li>
+<li>Attached or Detached mode<ul>
+<li><code>docker run -d image_name</code></li>
+<li>
+<code>docker attach container_id</code> : Attach a detached container</li>
+</ul>
+</li>
+<li>Specify a tag<ul>
+<li>
+<code>docker run -d redis:4.0</code> : Here, <code>4.0</code> is the tag</li>
+<li>If you don't specify a tag, <code>latest</code> is considered by default</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<code>docker ps</code><ul>
+<li>List running containers with some basic information</li>
+<li>
+<code>docker ps -a</code> : List ALL containers</li>
+</ul>
+</li>
+<li>
+<code>docker stop container_name_or_id</code><ul>
+<li>Stop a running container</li>
+</ul>
+</li>
+<li>
+<code>docker rm container_name_or_id</code><ul>
+<li>Remove a stopped container</li>
+</ul>
+</li>
+<li>
+<code>docker images</code><ul>
+<li>Show available images</li>
+</ul>
+</li>
+<li>
+<code>docker rmi image_name</code><ul>
+<li>Remove an image</li>
+</ul>
+</li>
+<li>
+<code>docker pull</code><ul>
+<li>Only pull an image but don't run</li>
+</ul>
+</li>
+<li>Execute a command on a running container<ul>
+<li><code>docker exec container_name_or_id cat /etc/hosts</code></li>
+</ul>
+</li>
+<li>Port mapping : map a port from inside the docker container to the host its running on<ul>
+<li><code>docker run -p 80:5000 tanmay/my-simple-app</code></li>
+<li>The above command will make sure that all traffic on port 80 of your host is routed to port 5000 inside your docker container</li>
+</ul>
+</li>
+<li>Data persistance<ul>
+<li>You can map a directory on your host (outside the docker container) to a file system location of your container to make sure the data persists</li>
+<li>e.g. Assume that you're running a mysql container<ul>
+<li>the mysql server stores its data at the location <code>var/lib/mysql</code>. If you remove the container, this data will be lost</li>
+<li>you can map a directory on your host instead like so:<ul>
+<li><code>docker run -v /opt/datadir:/var/lib/mysql mysql</code></li>
+<li>This way when the container runs, it will mount the external directory and store the data there</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Inspecting the container (sometimes <code>ps</code> is not enough)<ul>
+<li><code>docker inspect container_name_or_id</code></li>
+<li>Returns the container configuration in JSON format</li>
+</ul>
+</li>
+<li>Logs<ul>
+<li><code>docker logs container_name_of_id</code></li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Important-points">
+<a class="anchor" href="#Important-points" aria-hidden="true"><span class="octicon octicon-link"></span></a>Important points<a class="anchor-link" href="#Important-points"> </a>
+</h2>
+<ul>
+<li>A container lives only until the process inside it is alive</li>
+<li>To map the standard input of your host to a container, you need to pass the <code>i</code> flag for the interactive mode<ul>
+<li><code>docker run -i redis</code></li>
+</ul>
+</li>
+<li>To get the app's output on <em>your</em> terminal, use the <code>-t</code> flag for the terminal mode<ul>
+<li><code>docker run -it redis</code></li>
+</ul>
+</li>
+<li>The <code>-it</code> combination makes sure that your container is attached to the terminal as well as running in interactive mode</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/blog/docker/2022/06/01/Docker-Primer.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A data engineer&#39;s musings.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
